@@ -1,27 +1,716 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>PotatoX - New Leading Roblox Executor</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PotatoX - Download</title>
+    <style>
+        :root {
+            --primary-color: #bf00ff;
+            --primary-glow: #d24aff;
+            --secondary-color: #9900cc;
+            --dark-color: #0a0a12;
+            --darker-color: #050508;
+            --medium-dark: #12121f;
+            --light-color: #e0c6ff;
+            --neon-purple: #bf00ff;
+            --neon-pink: #ff00ea;
+            --neon-blue: #5636ff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark-color);
+            color: #f0f0f0;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: rgba(10, 10, 18, 0.95);
+            box-shadow: 0 2px 15px rgba(191, 0, 255, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(191, 0, 255, 0.3);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--neon-purple);
+            text-shadow: 0 0 10px rgba(191, 0, 255, 0.7);
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--light-color);
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-glow);
+            text-shadow: 0 0 8px var(--primary-color);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, var(--neon-purple), var(--neon-pink));
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--darker-color) 0%, var(--dark-color) 50%, #13081f 100%);
+            padding: 100px 0;
+            text-align: center;
+            border-bottom: 1px solid rgba(191, 0, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 100px;
+            background: linear-gradient(90deg, transparent, rgba(191, 0, 255, 0.2), transparent);
+            top: 20%;
+            left: -25%;
+            transform: rotate(-5deg);
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 100px;
+            background: linear-gradient(90deg, transparent, rgba(86, 54, 255, 0.1), transparent);
+            bottom: 20%;
+            left: -25%;
+            transform: rotate(5deg);
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 0 0 15px var(--primary-color);
+            letter-spacing: 1px;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            color: #bbb;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .download-section {
+            background-color: var(--medium-dark);
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .grid-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(191, 0, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(191, 0, 255, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        
+        .download-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .download-card {
+            background-color: rgba(18, 18, 31, 0.7);
+            border-radius: 10px;
+            border: 1px solid rgba(191, 0, 255, 0.3);
+            box-shadow: 0 5px 25px rgba(191, 0, 255, 0.2);
+            padding: 40px 30px;
+            width: 300px;
+            text-align: center;
+            transition: all 0.4s;
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                60deg,
+                transparent,
+                transparent,
+                rgba(191, 0, 255, 0.1),
+                transparent,
+                transparent
+            );
+            transform: rotate(45deg);
+            transition: all 0.8s;
+            z-index: -1;
+        }
+        
+        .download-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(191, 0, 255, 0.4);
+            border: 1px solid rgba(191, 0, 255, 0.6);
+        }
+        
+        .download-card:hover::before {
+            left: 100%;
+        }
+        
+        .download-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 8px var(--primary-color));
+        }
+        
+        .download-card h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(191, 0, 255, 0.5);
+        }
+        
+        .download-card p {
+            color: #bbb;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--neon-purple), var(--neon-blue));
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(191, 0, 255, 0.4);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s;
+            z-index: -1;
+        }
+        
+        .btn:hover {
+            box-shadow: 0 0 20px rgba(191, 0, 255, 0.6);
+            transform: translateY(-2px);
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .features {
+            padding: 80px 0;
+            background-color: var(--dark-color);
+            position: relative;
+        }
+        
+        .features::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            top: 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #fff;
+            text-shadow: 0 0 15px rgba(191, 0, 255, 0.5);
+        }
+        
+        .section-title p {
+            color: #bbb;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .feature-item {
+            padding: 30px;
+            border-radius: 8px;
+            background-color: rgba(18, 18, 31, 0.6);
+            text-align: center;
+            border: 1px solid rgba(191, 0, 255, 0.2);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            border: 1px solid rgba(191, 0, 255, 0.5);
+            box-shadow: 0 5px 20px rgba(191, 0, 255, 0.3);
+        }
+        
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary-color);
+            filter: blur(20px);
+            opacity: 0;
+            transition: all 0.6s;
+        }
+        
+        .feature-item:hover::before {
+            opacity: 0.8;
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 10px var(--primary-color));
+        }
+        
+        .feature-item h3 {
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        
+        .feature-item p {
+            color: #bbb;
+        }
+        
+        .cta {
+            background: linear-gradient(135deg, #260046 0%, #1a002e 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 200px;
+            background: linear-gradient(90deg, transparent, rgba(191, 0, 255, 0.1), transparent);
+            top: -100px;
+            left: -25%;
+            transform: rotate(-5deg);
+        }
+        
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(191, 0, 255, 0.5);
+        }
+        
+        .cta p {
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #ddd;
+        }
+        
+        .btn-light {
+            background: #fff;
+            color: var(--primary-color);
+        }
+        
+        .btn-light:hover {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+        }
+        
+        footer {
+            background-color: var(--darker-color);
+            color: #bbb;
+            padding: 60px 0 20px;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            top: 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1 1 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--primary-glow);
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(191, 0, 255, 0.5);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #8a8a8a;
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-glow);
+            text-shadow: 0 0 5px rgba(191, 0, 255, 0.5);
+        }
+        
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -3px;
+            left: 0;
+            background: var(--primary-color);
+            transition: width 0.3s;
+        }
+        
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 0 0 5px rgba(191, 0, 255, 0.3);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #1a1a2a;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* Neon glowing elements */
+        .glow-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            margin: 40px auto;
+            width: 80%;
+            max-width: 800px;
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+            }
+            
+            .nav-links li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .download-options {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container2">
-        <div class="navcard">
-            <button onclick="location.href='index.html'" class="nbtn">Home</button>
-            <button onclick="location.href='download.html'" class="nbtn">Download</button>
-            <button onclick="location.href='login.html'" class="nbtn">Premium
-            </button>
-            <button onclick="location.href='login.html'" class="nbtnr">Account</button>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <span class="logo-icon">🥔</span> PotatoX
+                </div>
+                <ul class="nav-links">
+                    <li><a href="loading.html">Home</a></li>
+                    <li><a href="loading.html">Features</a></li>
+                    <li><a href="loading.html">Download</a></li>
+                    <li><a href="loading.html">Support</a></li>
+                    <li><a href="loading.html">About</a></li>
+                </ul>
+            </nav>
         </div>
-    </div>
+    </header>
 
-
-    <div class="container">
-        <div class="card">
-            <h1 class="title">PotatoX - Executor</h1>
-            <p class="subtitle">Currently not available for download! Please wait for our download servers to become available.</p>
-            <button class="btn" onclick="location.href='download.html'">Download</button>
+    <section class="hero">
+        <div class="container">
+            <h1>Download PotatoX</h1>
+            <p>Experience the next generation exploiting tool designed to help you cheat in games, download maps and more. Download PotatoX for your preferred platform today.</p>
         </div>
-        <div class="blob"></div>
-    </div>
-    
+    </section>
+
+    <section class="download-section">
+        <div class="grid-background"></div>
+        <div class="container">
+            <div class="section-title">
+                <h2>Choose Your Platform</h2>
+                <p>PotatoX is available across multiple platforms to ensure you can exploit wherever you are.</p>
+            </div>
+            <div class="download-options">
+                <div class="download-card">
+                    <div class="download-icon">💻</div>
+                    <h3>Windows</h3>
+                    <p>For Windows 10 and 11<br>Version 2.4.1<br>64-bit</p>
+                    <a href="loading.html" class="btn">Download for Windows</a>
+                </div>
+                <div class="download-card">
+                    <div class="download-icon">🍎</div>
+                    <h3>macOS</h3>
+                    <p>For macOS 11 and newer<br>Version 2.4.1<br>Universal Binary</p>
+                    <a href="loading.html" class="btn">Download for macOS</a>
+                </div>
+                <div class="download-card">
+                    <div class="download-icon">🐧</div>
+                    <h3>Linux</h3>
+                    <p>For Ubuntu, Debian, Fedora<br>Version 2.4.1<br>AppImage & .deb available</p>
+                    <a href="loading.html" class="btn">Download for Linux</a>
+                </div>
+                <div class="download-card">
+                    <div class="download-icon">📱</div>
+                    <h3>Mobile Apps</h3>
+                    <p>iOS 14+ and Android 9+<br>Version 2.1.0<br>Optimized for all devices</p>
+                    <a href="loading.html" class="btn">Get Mobile Apps</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="glow-line"></div>
+
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose PotatoX?</h2>
+                <p>Designed with efficiency and simplicity in mind, PotatoX offers features that make it stand out from the crowd.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Optimized for performance, PotatoX starts instantly and runs smoothly even on older hardware.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure by Design</h3>
+                    <p>Your data stays private with end-to-end encryption and secure cloud backups.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🌙</div>
+                    <h3>Dark Mode</h3>
+                    <p>Reduce eye strain with our beautiful dark mode designed for long working sessions.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Cross-Platform Sync</h3>
+                    <p>Seamlessly sync your scripts across all your devices with real-time updates.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔌</div>
+                    <h3>Script Hub</h3>
+                    <p>Extend functionality with our growing library of community-created scripts.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <h3>100% UNC</h3>
+                    <p>Increase your abilities with the best executor available, offering full 100% UNC.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Transform Your Scripting Journey?</h2>
+            <p>Join thousands of satisfied users who have improved their scripting abilities with PotatoX. Download today and experience the difference.</p>
+            <a href="#" class="btn btn-light">Download Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <span class="logo-icon">🥔</span> PotatoX
+                    </div>
+                    <p>Empowering productivity since 2024. PotatoX is designed to help you achieve more with less effort.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">API</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">GDPR Compliance</a></li>
+                        <li><a href="#">Licensing</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PotatoX Software. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
+</html>
