@@ -3,714 +3,384 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PotatoX - Download</title>
+    <title>Site Blocked - Gambling Prevention</title>
     <style>
-        :root {
-            --primary-color: #bf00ff;
-            --primary-glow: #d24aff;
-            --secondary-color: #9900cc;
-            --dark-color: #0a0a12;
-            --darker-color: #050508;
-            --medium-dark: #12121f;
-            --light-color: #e0c6ff;
-            --neon-purple: #bf00ff;
-            --neon-pink: #ff00ea;
-            --neon-blue: #5636ff;
-        }
-        
-        * {
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: var(--dark-color);
-            color: #f0f0f0;
-            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         
         header {
-            background-color: rgba(10, 10, 18, 0.95);
-            box-shadow: 0 2px 15px rgba(191, 0, 255, 0.3);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(191, 0, 255, 0.3);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--neon-purple);
-            text-shadow: 0 0 10px rgba(191, 0, 255, 0.7);
-        }
-        
-        .logo-icon {
-            margin-right: 10px;
-            font-size: 28px;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--light-color);
-            font-weight: 500;
-            transition: all 0.3s;
-            position: relative;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary-glow);
-            text-shadow: 0 0 8px var(--primary-color);
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: linear-gradient(90deg, var(--neon-purple), var(--neon-pink));
-            transition: width 0.3s;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        .hero {
-            background: linear-gradient(135deg, var(--darker-color) 0%, var(--dark-color) 50%, #13081f 100%);
-            padding: 100px 0;
+            background-color: #1f1f1f;
+            color: white;
+            padding: 30px 20px;
             text-align: center;
-            border-bottom: 1px solid rgba(191, 0, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
             position: relative;
             overflow: hidden;
         }
         
-        .hero::before {
+        header::after {
             content: '';
             position: absolute;
-            width: 150%;
-            height: 100px;
-            background: linear-gradient(90deg, transparent, rgba(191, 0, 255, 0.2), transparent);
-            top: 20%;
-            left: -25%;
-            transform: rotate(-5deg);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(220, 20, 60, 0.15), transparent);
+            z-index: 1;
         }
         
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 150%;
-            height: 100px;
-            background: linear-gradient(90deg, transparent, rgba(86, 54, 255, 0.1), transparent);
-            bottom: 20%;
-            left: -25%;
-            transform: rotate(5deg);
-        }
-        
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: #ffffff;
-            text-shadow: 0 0 15px var(--primary-color);
-            letter-spacing: 1px;
-        }
-        
-        .hero p {
-            font-size: 18px;
-            color: #bbb;
-            margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .download-section {
-            background-color: var(--medium-dark);
-            padding: 80px 0;
+        header h1, header p {
             position: relative;
+            z-index: 2;
         }
         
-        .grid-background {
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            flex: 1;
+        }
+        
+        .stop-hand {
+            width: 150px;
+            height: 150px;
+            background-color: #ff1a1a;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 30px rgba(255, 26, 26, 0.4);
+        }
+        
+        .stop-hand svg {
+            width: 90px;
+            height: 90px;
+            fill: white;
+        }
+        
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        h2 {
+            font-size: 26px;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #ff3333;
+            border-bottom: 1px solid #333;
+            padding-bottom: 8px;
+        }
+        
+        p {
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .content-box {
+            background-color: #1e1e1e;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            margin-bottom: 40px;
+            border: 1px solid #333;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            margin: 40px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            border: 1px solid #444;
+        }
+        
+        .video-container video {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
-                linear-gradient(rgba(191, 0, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(191, 0, 255, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
+            border-radius: 8px;
         }
         
-        .download-options {
+        .resources {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
-            position: relative;
-            z-index: 2;
+            gap: 20px;
+            margin-top: 30px;
         }
         
-        .download-card {
-            background-color: rgba(18, 18, 31, 0.7);
-            border-radius: 10px;
-            border: 1px solid rgba(191, 0, 255, 0.3);
-            box-shadow: 0 5px 25px rgba(191, 0, 255, 0.2);
-            padding: 40px 30px;
-            width: 300px;
-            text-align: center;
-            transition: all 0.4s;
-            backdrop-filter: blur(5px);
-            position: relative;
-            overflow: hidden;
+        .resource-card {
+            background-color: #252525;
+            border-left: 4px solid #ff3333;
+            padding: 20px;
+            border-radius: 8px;
+            flex: 1 1 250px;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        .download-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                60deg,
-                transparent,
-                transparent,
-                rgba(191, 0, 255, 0.1),
-                transparent,
-                transparent
-            );
-            transform: rotate(45deg);
-            transition: all 0.8s;
-            z-index: -1;
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 51, 51, 0.2);
         }
         
-        .download-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(191, 0, 255, 0.4);
-            border: 1px solid rgba(191, 0, 255, 0.6);
-        }
-        
-        .download-card:hover::before {
-            left: 100%;
-        }
-        
-        .download-icon {
-            font-size: 60px;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 0 8px var(--primary-color));
-        }
-        
-        .download-card h3 {
-            margin-bottom: 15px;
-            font-size: 22px;
-            color: #fff;
-            text-shadow: 0 0 10px rgba(191, 0, 255, 0.5);
-        }
-        
-        .download-card p {
-            color: #bbb;
-            margin-bottom: 25px;
-            font-size: 14px;
+        .resource-card h3 {
+            margin-top: 0;
+            color: #ff5252;
         }
         
         .btn {
             display: inline-block;
-            background: linear-gradient(90deg, var(--neon-purple), var(--neon-blue));
+            background-color: #ff3333;
             color: white;
-            padding: 12px 30px;
-            border-radius: 25px;
+            padding: 12px 28px;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: bold;
+            margin-top: 15px;
             transition: all 0.3s;
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-            box-shadow: 0 0 15px rgba(191, 0, 255, 0.4);
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: all 0.6s;
-            z-index: -1;
+            box-shadow: 0 4px 10px rgba(255, 51, 51, 0.3);
         }
         
         .btn:hover {
-            box-shadow: 0 0 20px rgba(191, 0, 255, 0.6);
+            background-color: #ff0000;
+            box-shadow: 0 6px 15px rgba(255, 51, 51, 0.5);
             transform: translateY(-2px);
         }
         
-        .btn:hover::before {
-            left: 100%;
+        .btn-alt {
+            background-color: #2e7d32;
+            box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3);
         }
         
-        .features {
-            padding: 80px 0;
-            background-color: var(--dark-color);
-            position: relative;
-        }
-        
-        .features::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
-            top: 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            position: relative;
-        }
-        
-        .section-title h2 {
-            font-size: 36px;
-            margin-bottom: 15px;
-            color: #fff;
-            text-shadow: 0 0 15px rgba(191, 0, 255, 0.5);
-        }
-        
-        .section-title p {
-            color: #bbb;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .feature-item {
-            padding: 30px;
-            border-radius: 8px;
-            background-color: rgba(18, 18, 31, 0.6);
-            text-align: center;
-            border: 1px solid rgba(191, 0, 255, 0.2);
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .feature-item:hover {
-            transform: translateY(-5px);
-            border: 1px solid rgba(191, 0, 255, 0.5);
-            box-shadow: 0 5px 20px rgba(191, 0, 255, 0.3);
-        }
-        
-        .feature-item::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            width: 20px;
-            height: 20px;
-            background-color: var(--primary-color);
-            filter: blur(20px);
-            opacity: 0;
-            transition: all 0.6s;
-        }
-        
-        .feature-item:hover::before {
-            opacity: 0.8;
-        }
-        
-        .feature-icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-            filter: drop-shadow(0 0 10px var(--primary-color));
-        }
-        
-        .feature-item h3 {
-            margin-bottom: 10px;
-            color: #fff;
-        }
-        
-        .feature-item p {
-            color: #bbb;
-        }
-        
-        .cta {
-            background: linear-gradient(135deg, #260046 0%, #1a002e 100%);
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta::before {
-            content: '';
-            position: absolute;
-            width: 150%;
-            height: 200px;
-            background: linear-gradient(90deg, transparent, rgba(191, 0, 255, 0.1), transparent);
-            top: -100px;
-            left: -25%;
-            transform: rotate(-5deg);
-        }
-        
-        .cta h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            text-shadow: 0 0 15px rgba(191, 0, 255, 0.5);
-        }
-        
-        .cta p {
-            margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            color: #ddd;
-        }
-        
-        .btn-light {
-            background: #fff;
-            color: var(--primary-color);
-        }
-        
-        .btn-light:hover {
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+        .btn-alt:hover {
+            background-color: #1b5e20;
+            box-shadow: 0 6px 15px rgba(46, 125, 50, 0.5);
         }
         
         footer {
-            background-color: var(--darker-color);
-            color: #bbb;
-            padding: 60px 0 20px;
-            position: relative;
+            background-color: #1a1a1a;
+            color: #aaa;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+            border-top: 1px solid #333;
         }
         
-        footer::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
-            top: 0;
-        }
-        
-        .footer-content {
+        .stats {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            margin-bottom: 40px;
+            margin: 30px 0;
+            text-align: center;
         }
         
-        .footer-column {
-            flex: 1 1 250px;
+        .stat-item {
+            flex: 1;
+            min-width: 150px;
+            margin: 10px;
+            padding: 25px 20px;
+            background-color: #252525;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 42px;
+            font-weight: bold;
+            color: #ff5252;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(255, 82, 82, 0.3);
+        }
+        
+        ul {
+            padding-left: 20px;
             margin-bottom: 30px;
         }
         
-        .footer-logo {
+        li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .alternatives {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .alt-item {
+            background-color: #252525;
+            border-radius: 8px;
+            padding: 15px;
+            flex: 1 1 180px;
             display: flex;
             align-items: center;
-            font-size: 22px;
-            font-weight: bold;
-            color: var(--primary-glow);
-            margin-bottom: 20px;
-            text-shadow: 0 0 10px rgba(191, 0, 255, 0.5);
+            border: 1px solid #333;
         }
         
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: #8a8a8a;
-            text-decoration: none;
-            transition: all 0.3s;
-            position: relative;
-        }
-        
-        .footer-links a:hover {
-            color: var(--primary-glow);
-            text-shadow: 0 0 5px rgba(191, 0, 255, 0.5);
-        }
-        
-        .footer-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1px;
-            bottom: -3px;
-            left: 0;
-            background: var(--primary-color);
-            transition: width 0.3s;
-        }
-        
-        .footer-links a:hover::after {
-            width: 100%;
-        }
-        
-        .footer-column h3 {
+        .alt-icon {
+            background-color: #2e7d32;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
             font-size: 18px;
-            margin-bottom: 20px;
-            color: #fff;
-            text-shadow: 0 0 5px rgba(191, 0, 255, 0.3);
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #1a1a2a;
-            color: #666;
-            font-size: 14px;
-        }
-        
-        /* Neon glowing elements */
-        .glow-line {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
-            margin: 40px auto;
-            width: 80%;
-            max-width: 800px;
-        }
-        
-        /* Animations */
-        @keyframes pulse {
-            0% { opacity: 0.5; }
-            50% { opacity: 1; }
-            100% { opacity: 0.5; }
         }
         
         .pulse {
             animation: pulse 2s infinite;
         }
         
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                padding: 15px 0;
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 51, 51, 0.7);
             }
-            
-            .nav-links {
-                margin-top: 15px;
+            70% {
+                box-shadow: 0 0 0 15px rgba(255, 51, 51, 0);
             }
-            
-            .nav-links li {
-                margin-left: 15px;
-                margin-right: 15px;
-            }
-            
-            .hero h1 {
-                font-size: 32px;
-            }
-            
-            .hero p {
-                font-size: 16px;
-            }
-            
-            .download-options {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .section-title h2 {
-                font-size: 28px;
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 51, 51, 0);
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo">
-                    <span class="logo-icon">🥔</span> PotatoX
-                </div>
-                <ul class="nav-links">
-                    <li><a href="loading.html">Home</a></li>
-                    <li><a href="loading.html">Features</a></li>
-                    <li><a href="download.html">Download</a></li>
-                    <li><a href="loading.html">Support</a></li>
-                    <li><a href="loading.html">About</a></li>
-                </ul>
-            </nav>
-        </div>
+        <h1>ACCESS BLOCKED</h1>
+        <p>This gambling website has been restricted for your protection</p>
     </header>
-
-    <section class="hero">
-        <div class="container">
-            <h1>Download PotatoX</h1>
-            <p>Experience the next generation exploiting tool designed to help you cheat in games, download maps and more. Download PotatoX for your preferred platform today.</p>
-        </div>
-    </section>
-
-    <section class="download-section">
-        <div class="grid-background"></div>
-        <div class="container">
-            <div class="section-title">
-                <h2>Choose Your Platform</h2>
-                <p>PotatoX is available across multiple platforms to ensure you can exploit wherever you are.</p>
+    
+    <div class="container">
+        <div class="content-box">
+            <div class="stop-hand pulse">
+                <svg viewBox="0 0 512 512">
+                    <path d="M256,0C114.6,0,0,114.6,0,256s114.6,256,256,256s256-114.6,256-256S397.4,0,256,0z M381.4,289.9l-112,112
+                    c-6.2,6.2-14.4,9.4-22.6,9.4s-16.38-3.125-22.62-9.375l-112-112c-12.5-12.5-12.5-32.75,0-45.25s32.75-12.5,45.25,0L224,311.3V128
+                    c0-17.69,14.31-32,32-32s32,14.31,32,32v183.3l66.75-66.63c12.5-12.5,32.75-12.5,45.25,0S393.9,277.4,381.4,289.9z" transform="rotate(270 256 256)"/>
+                </svg>
             </div>
-            <div class="download-options">
-                <div class="download-card">
-                    <div class="download-icon">💻</div>
-                    <h3>Windows</h3>
-                    <p>For Windows 10 and 11<br>Version 2.4.1<br>64-bit</p>
-                    <a href="download.html" class="btn">Download for Windows</a>
+            
+            <h2>Why This Site Is Blocked</h2>
+            <p>The website you were trying to access has been identified as a gambling site that may pose risks to your financial and mental wellbeing. This block has been put in place to help protect you from potential gambling-related harm.</p>
+            
+            <div class="video-container">
+                <video controls>
+                    <source src="video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
+            <h2>Understanding Gambling Risks</h2>
+            <p>What starts as casual entertainment can rapidly develop into a serious problem with devastating consequences. Gambling addiction affects your finances, relationships, mental health, and overall quality of life.</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">1 in 5</div>
+                    <p>Problem gamblers consider suicide</p>
                 </div>
-                <div class="download-card">
-                    <div class="download-icon">🍎</div>
-                    <h3>macOS</h3>
-                    <p>For macOS 11 and newer<br>Version 2.4.1<br>Universal Binary</p>
-                    <a href="download.html" class="btn">Download for macOS</a>
+                <div class="stat-item">
+                    <div class="stat-number">74%</div>
+                    <p>Experience financial difficulties</p>
                 </div>
-                <div class="download-card">
-                    <div class="download-icon">🐧</div>
-                    <h3>Linux</h3>
-                    <p>For Ubuntu, Debian, Fedora<br>Version 2.4.1<br>AppImage & .deb available</p>
-                    <a href="download.html" class="btn">Download for Linux</a>
-                </div>
-                <div class="download-card">
-                    <div class="download-icon">📱</div>
-                    <h3>Mobile Apps</h3>
-                    <p>iOS 14+ and Android 9+<br>Version 2.1.0<br>Optimized for all devices</p>
-                    <a href="download.html" class="btn">Get Mobile Apps</a>
+                <div class="stat-item">
+                    <div class="stat-number">$1,200</div>
+                    <p>Average monthly loss for problem gamblers</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <div class="glow-line"></div>
-
-    <section class="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>Why Choose PotatoX?</h2>
-                <p>Designed with efficiency and simplicity in mind, PotatoX offers features that make it stand out from the crowd.</p>
-            </div>
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Lightning Fast</h3>
-                    <p>Optimized for performance, PotatoX starts instantly and runs smoothly even on older hardware.</p>
+            
+            <h2>Warning Signs of Problem Gambling</h2>
+            <ul>
+                <li>Spending more time or money than intended</li>
+                <li>Chasing losses to try to win back money</li>
+                <li>Lying about gambling habits to friends or family</li>
+                <li>Borrowing money or selling possessions to gamble</li>
+                <li>Neglecting work, school, or family responsibilities</li>
+                <li>Feeling restless or irritable when trying to stop</li>
+            </ul>
+            
+            <h2>Help Is Available</h2>
+            <p>If you or someone you know is struggling with gambling, remember that help is available and recovery is possible.</p>
+            
+            <div class="resources">
+                <div class="resource-card">
+                    <h3>National Problem Gambling Helpline</h3>
+                    <p>Free, confidential support available 24/7</p>
+                    <a href="#" class="btn">Call 1-800-522-4700</a>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Secure by Design</h3>
-                    <p>Your data stays private with end-to-end encryption and secure cloud backups.</p>
+                <div class="resource-card">
+                    <h3>Gamblers Anonymous</h3>
+                    <p>Find support meetings in your area</p>
+                    <a href="#" class="btn">Find Meetings</a>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🌙</div>
-                    <h3>Dark Mode</h3>
-                    <p>Reduce eye strain with our beautiful dark mode designed for long working sessions.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🔄</div>
-                    <h3>Cross-Platform Sync</h3>
-                    <p>Seamlessly sync your scripts across all your devices with real-time updates.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🔌</div>
-                    <h3>Script Hub</h3>
-                    <p>Extend functionality with our growing library of community-created scripts.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">📊</div>
-                    <h3>100% UNC</h3>
-                    <p>Increase your abilities with the best executor available, offering full 100% UNC.</p>
+                <div class="resource-card">
+                    <h3>Financial Counseling</h3>
+                    <p>Get help managing gambling debt</p>
+                    <a href="#" class="btn">Get Help</a>
                 </div>
             </div>
+            
+            <h2>Make a Positive Choice Today</h2>
+            <p>Instead of gambling, consider these healthier alternatives:</p>
+            
+            <div class="alternatives">
+                <div class="alt-item">
+                    <div class="alt-icon">🏃</div>
+                    <div>Exercise or play sports</div>
+                </div>
+                <div class="alt-item">
+                    <div class="alt-icon">🎨</div>
+                    <div>Pick up a new hobby</div>
+                </div>
+                <div class="alt-item">
+                    <div class="alt-icon">👪</div>
+                    <div>Spend time with family</div>
+                </div>
+                <div class="alt-item">
+                    <div class="alt-icon">💰</div>
+                    <div>Save for a meaningful goal</div>
+                </div>
+                <div class="alt-item">
+                    <div class="alt-icon">❤️</div>
+                    <div>Volunteer in your community</div>
+                </div>
+                <div class="alt-item">
+                    <div class="alt-icon">🧠</div>
+                    <div>Learn a new skill</div>
+                </div>
+            </div>
+            
+            <a href="javascript:history.back()" class="btn btn-alt">Return to Safety</a>
         </div>
-    </section>
-
-    <section class="cta">
-        <div class="container">
-            <h2>Ready to Transform Your Scripting Journey?</h2>
-            <p>Join thousands of satisfied users who have improved their scripting abilities with PotatoX. Download today and experience the difference.</p>
-            <a href="download.html" class="btn btn-light">Download Now</a>
-        </div>
-    </section>
-
+    </div>
+    
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <div class="footer-logo">
-                        <span class="logo-icon">🥔</span> PotatoX
-                    </div>
-                    <p>Empowering productivity since 2024. PotatoX is designed to help you achieve more with less effort.</p>
-                </div>
-                <div class="footer-column">
-                    <h3>Company</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Resources</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">Tutorials</a></li>
-                        <li><a href="#">API</a></li>
-                        <li><a href="#">Community</a></li>
-                        <li><a href="#">FAQs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Legal</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Cookies</a></li>
-                        <li><a href="#">GDPR Compliance</a></li>
-                        <li><a href="#">Licensing</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 PotatoX Software. All rights reserved.</p>
-            </div>
-        </div>
+        <p>This page is displayed because the website you attempted to visit has been identified as a gambling site and blocked by your network administrator or filtering software.</p>
+        <p>If you believe this block was made in error, please contact your system administrator.</p>
     </footer>
 </body>
 </html>
